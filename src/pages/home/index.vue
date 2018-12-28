@@ -2,6 +2,7 @@
   <div class="container">
     <!-- <van-tag type="danger" @click="$router.push('/pages/index')">index</van-tag> -->
     <div><van-tag @click="$router.push('/pages/test1')">111</van-tag></div>
+    <p class="text">{{getUserName}}</p>
     <van-button type="default">默认按钮</van-button>
     <div><van-button type="default">默认按钮</van-button></div>
   </div>  
@@ -31,4 +32,9 @@ export default {
 
 }
 </script>
+<style lang="sass" >
+.van-button--default 
+  background-color: red!important
+</style>
+
 
