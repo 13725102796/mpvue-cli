@@ -1,0 +1,98 @@
+@import './var.sass'
+
+@mixin no-wrap() // 不换行
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+@mixin flex
+  display: flex
+  justify-content: center
+
+@mixin bg-img($name)  // 背景图片
+  background-image: url("~@/assets/img/#{$name}")
+  background-position: center
+  background-size: 100% 100%
+  background-repeat: no-repeat
+
+@mixin border ($px, $direction:all,$color: $border-color) 
+  @if $direction == 'all'
+    border: $px solid $color;/*no*/
+  @else
+    border-#{$direction}: $px solid $color; /*no*/
+
+@mixin mask($color:#e2e2e2c7,$zIndex: 99)
+  // padding: 0
+  z-index: $zIndex
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: $color
+
+@mixin title 
+  font-size: $title-size
+  color: $title-color
+@mixin desc
+  font-size: $desc-size
+  color: $desc-color  
+
+@mixin singleFile
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+@mixin icon($width)
+  display: inline-block
+  width: $width
+  height: $width
+  vertical-align: middle
+
+@mixin goback($width:.05rem)
+  position: relative
+  font-family: base_icon
+  display: inline-block
+  vertical-align: middle
+  font-style: normal
+  &:after
+    content: ''
+    display: inline-block
+    position: relative
+    // top: -.5em
+    width: .5em
+    height: .5em
+    border-bottom: $width solid #999
+    border-left: $width solid #999
+    transform: rotate(-135deg)
+@mixin moreLine($num:2)
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $num
+  overflow: hidden
+@mixin weightText
+  font-weight: 600
+  letter-spacing: 1px;/*no*/
+  font-size: .42rem
+@mixin select($width:30px)
+  +icon($width)
+  border-radius: $width
+  +border(1px)
+  position: absolute
+  left: 0
+  top: 50%
+  transform: translateY(-50%)
+  box-sizing: border-box
+@mixin select-active
+  background-image: url('~@/assets/img/storeMgr/select.png')
+  background-size: 100% 100%
+  border: none!important
+
+@mixin center
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+
+@mixin circle($size)
+  +icon($size)
+  border-radius: $size
